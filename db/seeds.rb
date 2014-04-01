@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Wine.create(name:'Whiskey', year:'1957', winery:'Run Creek Vineyard', country:'USA', varietal:'barley')
+Wine.create(name:'Scott', year:'1962', winery:'Scott Cellars', country:'UK', varietal:'apple')
+Wine.create(name:'Vodka', year:'1980', winery:'DiVine', country:'Russia', varietal:'ethanol')

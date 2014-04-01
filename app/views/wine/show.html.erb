@@ -1,0 +1,11 @@
+<article class="wines">
+  <header>
+    <h2><%= @wines.name %></h2>
+  </header>
+  <p><label>Country:</label> <%= @wines.country %></p>
+  <p><label>Year:</label> <%= @wines.year %></p>
+  <p><label>Winery:</label> <%= @wines.winery %></p>
+  <p><label>Varietal:</label> <%= @wines.varietal %></p>
+</article>
+
+<%= link_to 'All wines', wine_path %>
