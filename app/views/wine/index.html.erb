@@ -1,5 +1,5 @@
 <h1>Wine Review</h1>
-<p>Available as of <% formatted_time(@available_at) %></p>
+<p>Available as of <%= formatted_time(@available_at) %></p>
 <ol>
 	<% @wine.each do |wine| %>
 	<li><%= link_to(wine.name, wine) %> made in <%= wine.country %></li>
