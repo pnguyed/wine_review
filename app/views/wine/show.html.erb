@@ -1,12 +1,16 @@
+<% content_for :name, @wine.name %>
 <article class="wines">
   <header>
-    <h2><%= @wines.name %></h2>
+    <h2><%= @wine.name %></h2>
   </header>
-  <p><label>Country:</label> <%= @wines.country %></p>
-  <p><label>Year:</label> <%= @wines.year %></p>
-  <p><label>Winery:</label> <%= @wines.winery %></p>
-  <p><label>Varietal:</label> <%= @wines.varietal %></p>
+  <p><label>Country:</label> <%= @wine.country %></p>
+  <p><label>Year:</label> <%= @wine.year %></p>
+  <p><label>Winery:</label> <%= @wine.winery %></p>
+  <p><label>Varietal:</label> <%= @wine.varietal %></p>
 </article>
 
-<%= link_to 'All wines', wines_path %>
-| <%= link_to 'Edit', edit_wine_path(@wines) %>
+<%= link_to 'All wines', wine_path %>
+| <%= link_to 'Edit', edit_wine_path(@wine) %>
+<%= button_to 'Delete', @wine,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
