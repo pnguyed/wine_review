@@ -6,7 +6,9 @@ WineReview::Application.routes.draw do
   #get "/wines/:id/edit" => "wine#edit", as: 'edit_wine'
   #patch "/wines/:id" => "wine#update"
   #delete "/wines/:id" => "wine#destroy"
-  resources :wine
+  resources :wine do
+    get 'page/:page', :action => :index, :on => :collection
+  end
   root 'wine#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

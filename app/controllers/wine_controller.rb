@@ -1,8 +1,8 @@
 class WineController < ApplicationController
 	before_action :set_wine, only: [ :show, :edit, :update, :destroy ]
 	def index
-		@available_at = Time.now
-		@wine = Wine.all
+  		@available_at = Time.now
+  		@wine = Wine.order(:name).page(params[:page])
 	end
 	def show
   		#@wines = Wine.find(params[:id])

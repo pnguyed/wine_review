@@ -1,7 +1,9 @@
-<h1>Wine Review</h1>
-<p>Available as of <%= formatted_time(@available_at) %></p>
+<h1>Wine</h1>
+<p>Available as <%= formatted_time(@available_at) %></p>
+<%= page_entries_info @wine %>
 <ol>
-	<% @wine.each do |wine| %>
-	<li><%= link_to(wine.name, wine) %> made in <%= wine.country %></li>
-	<% end %>
+<% @wine.each do |wine| %>
+  <li><%= link_to(wine.name, wine) %> by <%= wine.country %></li>
+<% end %>
 </ol>
+<%= paginate @wine %>

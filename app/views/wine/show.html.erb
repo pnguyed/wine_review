@@ -9,7 +9,7 @@
   <p><label>Varietal:</label> <%= @wine.varietal %></p>
 </article>
 
-<%= link_to 'All wines', wine_path %>
+<%= link_to 'All wines', wine_index_path %>
 | <%= link_to 'Edit', edit_wine_path(@wine) %>
 <%= button_to 'Delete', @wine,
                method: :delete,
