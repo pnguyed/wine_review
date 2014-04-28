@@ -7,6 +7,12 @@
   <p><label>Year:</label> <%= @wine.year %></p>
   <p><label>Winery:</label> <%= @wine.winery %></p>
   <p><label>Varietal:</label> <%= @wine.varietal %></p>
+  <p>
+  Read all
+  <%= link_to pluralize(@wine.reviews.size, 'review'), 
+                        wine_reviews_path(@wine) %>
+</p>
+<p><label>Average Review:</label> <%= format_average_rating(@wine) %></p>
 </article>
 
 <%= link_to 'All wines', wine_index_path %>

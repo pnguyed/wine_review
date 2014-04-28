@@ -1,0 +1,21 @@
+<header>Reviews for <%= link_to(@wine.name, @wine) %></header>
+<ol id="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <span class="review"><%= pluralize(review.rating, 'ratings') %></span>
+      <span class="user">by <%= review.name %> </span>
+      <span class="date">
+        <%= time_ago_in_words(review.created_at) %> ago
+      </span>
+      <p>
+        &quot;<%= review.comments %>&quot;
+      </p>
+    </li>
+  <% end %>
+</ol>
+<%= link_to 'Write a Review', new_wine_review_path(@wine),
+        remote: true,
+        data: { 'update-target' => 'review_form_container' },
+        class: 'btn btn-primary' %>
+
+<div id="review_form_container"></div>

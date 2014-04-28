@@ -1,4 +1,6 @@
 WineReview::Application.routes.draw do
+  #resources :reviews
+
   #get "/wines" => "wine#index", as: 'wines'
   #get "/wines/new" => "wine#new", as: 'new_wine'
   #get "/wines/:id" => "wine#show", as: 'wine'
@@ -7,7 +9,8 @@ WineReview::Application.routes.draw do
   #patch "/wines/:id" => "wine#update"
   #delete "/wines/:id" => "wine#destroy"
   resources :wine do
-    get 'page/:page', :action => :index, :on => :collection
+  resources :reviews
+  get 'page/:page', :action => :index, :on => :collection
   end
   root 'wine#index'
   # The priority is based upon order of creation: first created -> highest priority.
