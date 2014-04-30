@@ -10,16 +10,19 @@ class ReviewsController < ApplicationController
 
 	def create
   		@review = @wine.reviews.new(review_params)
-  	if @review.save
-    	redirect_to wine_reviews_path(@wine), notice: 'Review saved!'
-  	else
-    	render :new
-  	end
-end
-	private
-	def review_params
-  		params.require(:review).permit(:rating, :name, :comment)
+  		if @review.save
+    		redirect_to wine_reviews_path(@wine), notice: 'Review saved!'
+  		else
+	    	render :new
+  		end
 	end
+	
+	private
+	
+	def review_params
+  		params.require(:review).permit(:rating, :name, :comments)
+	end
+	
 	def set_wine
   		@wine = Wine.find(params[:wine_id])
 	end

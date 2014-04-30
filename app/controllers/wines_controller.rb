@@ -1,8 +1,8 @@
-class WineController < ApplicationController
+class WinesController < ApplicationController
 	before_action :set_wine, only: [ :show, :edit, :update, :destroy ]
 	def index
   		@available_at = Time.now
-  		@wine = Wine.includes(:reviews).order(:name).page(params[:page])
+  		@wines = Wine.includes(:reviews).order(:name).page(params[:page])
 	end
 	def show
   		#@wines = Wine.find(params[:id])
@@ -12,9 +12,9 @@ class WineController < ApplicationController
 	end
 
 	def create
-    	@wine = Wine.new(wine_params)
+    	@wine = Wine.new(wines_params)
     	if @wine.save
-      		redirect_to @wine, notice: "#{@wine.name} was created!"
+      		redirect_to wines_path, notice: "#{@wine.name} was created!"
     	else
       		render :new
     	end
@@ -24,8 +24,8 @@ class WineController < ApplicationController
 	end
 
 	def update
-    	if @wine.update(wine_params)
-      		redirect_to @wine, notice: "#{@wine.name} was created!"
+    	if @wine.update(wines_params)
+      		redirect_to @wines, notice: "#{@wine.name} was created!"
     	else
       		render :new
     	end
@@ -39,7 +39,7 @@ class WineController < ApplicationController
 	def set_wine
   		@wine = Wine.find(params[:id])
 	end
-	def wine_params
+	def wines_params
   		params.require(:wine).permit(:name, :country, :year, :winery, :varietal)
 	end
 end

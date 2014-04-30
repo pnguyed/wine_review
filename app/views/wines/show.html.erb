@@ -15,7 +15,7 @@
 <p><label>Average Review:</label> <%= format_average_rating(@wine) %></p>
 </article>
 
-<%= link_to 'All wines', wine_index_path %>
+<%= link_to 'All wines', wines_path %>
 | <%= link_to 'Edit', edit_wine_path(@wine) %>
 <%= button_to 'Delete', @wine,
                method: :delete,
